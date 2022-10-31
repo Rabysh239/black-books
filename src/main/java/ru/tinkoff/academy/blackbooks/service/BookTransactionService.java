@@ -1,6 +1,6 @@
 package ru.tinkoff.academy.blackbooks.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -21,17 +21,11 @@ import static java.util.Comparator.comparing;
 import static ru.tinkoff.academy.blackbooks.enums.SortType.ASK;
 
 @Service
+@RequiredArgsConstructor
 public class BookTransactionService {
-    @Autowired
-    private BookTransactionRepository repository;
-    @Autowired
-    private BookTransactionMapper mapper;
-
-    private final Comparator<BookTransaction> timestampComparator;
-
-    public BookTransactionService() {
-        timestampComparator = comparing(BookTransaction::getTimestamp);
-    }
+    private final BookTransactionRepository repository;
+    private final BookTransactionMapper mapper;
+    private static final Comparator<BookTransaction> TIMESTAMP_COMPARATOR = comparing(BookTransaction::getTimestamp);
 
     public void create(BookTransactionDTO bookTransactionDTO) {
         BookTransaction bookTransaction = mapper.mapToEntity(bookTransactionDTO);
@@ -55,7 +49,7 @@ public class BookTransactionService {
                 .getAll()
                 .stream()
                 .filter(depositPredicate.and(hunterPredicate))
-                .sorted(type == ASK ? timestampComparator : timestampComparator.reversed())
+                .sorted(type == ASK ? TIMESTAMP_COMPARATOR : TIMESTAMP_COMPARATOR.reversed())
                 .limit(amount)
         );
     }

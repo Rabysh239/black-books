@@ -1,7 +1,7 @@
 package ru.tinkoff.academy.blackbooks.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -12,11 +12,11 @@ import ru.tinkoff.academy.blackbooks.enums.SortType;
 import java.util.UUID;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/transaction")
 @Tag(name="Transaction operations")
 public class BookTransactionController {
-    @Autowired
-    BookTransactionService service;
+    private final BookTransactionService service;
 
     @GetMapping
     public Flux<BookTransactionDTO> readBookTransactions() {

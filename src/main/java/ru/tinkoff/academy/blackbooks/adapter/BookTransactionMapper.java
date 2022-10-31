@@ -1,8 +1,7 @@
 package ru.tinkoff.academy.blackbooks.adapter;
 
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.tinkoff.academy.blackbooks.model.BookTransaction;
 import ru.tinkoff.academy.blackbooks.model.BookTransactionDTO;
@@ -14,26 +13,14 @@ import java.text.SimpleDateFormat;
 import java.util.UUID;
 
 import static java.sql.Timestamp.valueOf;
-import static org.modelmapper.config.Configuration.AccessLevel.PRIVATE;
 
 @Component
+@RequiredArgsConstructor
 public class BookTransactionMapper {
     private final ModelMapper modelMapper;
-    private final SimpleDateFormat formatter;
-    @Autowired
-    private BookDepositService bookDepositService;
-    @Autowired
-    private BookHunterService bookHunterService;
-
-    public BookTransactionMapper() {
-        modelMapper = new ModelMapper();
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.STRICT)
-                .setFieldMatchingEnabled(true)
-                .setSkipNullEnabled(true)
-                .setFieldAccessLevel(PRIVATE);
-        formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");
-    }
+    private static final SimpleDateFormat FORMATTER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");
+    private final BookDepositService bookDepositService;
+    private final BookHunterService bookHunterService;
 
     public BookTransaction mapToEntity(BookTransactionDTO bookTransactionDTO) {
         if (bookTransactionDTO == null) {
@@ -58,7 +45,7 @@ public class BookTransactionMapper {
         bookTransactionDTO.setShelf(bookDepositAddress);
         String bookHunterNick = bookHunterService.getBookHunterNick(bookTransaction.getBookHunterId());
         bookTransactionDTO.setUser(bookHunterNick);
-        String timestamp = formatter.format(bookTransaction.getTimestamp());
+        String timestamp = FORMATTER.format(bookTransaction.getTimestamp());
         bookTransactionDTO.setTimestamp(timestamp);
         return bookTransactionDTO;
     }

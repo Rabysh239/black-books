@@ -1,7 +1,7 @@
 package ru.tinkoff.academy.blackbooks.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,11 +9,11 @@ import reactor.core.publisher.Mono;
 import ru.tinkoff.academy.blackbooks.service.SystemService;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("system")
 @Tag(name="System prob")
 public class SystemController {
-    @Autowired
-    private SystemService service;
+    private final SystemService service;
 
     @GetMapping("liveness")
     Mono<String> getLiveness() {
