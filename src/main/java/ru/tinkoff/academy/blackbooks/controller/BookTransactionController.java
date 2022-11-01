@@ -44,8 +44,8 @@ public class BookTransactionController {
     }
 
     @PutMapping("{id}")
-    public void updateBookTransaction(@PathVariable UUID id, @RequestBody BookTransactionDTO userProfileDTO) {
-        service.update(id, userProfileDTO);
+    public void updateBookTransaction(@PathVariable UUID id, @RequestBody BookTransactionDTO bookTransactionDTO) {
+        service.update(id, bookTransactionDTO);
     }
 
     @DeleteMapping("{id}")
