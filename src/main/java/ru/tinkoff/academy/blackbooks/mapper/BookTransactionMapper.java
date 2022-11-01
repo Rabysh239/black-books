@@ -1,4 +1,4 @@
-package ru.tinkoff.academy.blackbooks.adapter;
+package ru.tinkoff.academy.blackbooks.mapper;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

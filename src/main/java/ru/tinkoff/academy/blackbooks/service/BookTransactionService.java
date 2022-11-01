@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import ru.tinkoff.academy.blackbooks.adapter.BookTransactionMapper;
+import ru.tinkoff.academy.blackbooks.mapper.BookTransactionMapper;
 import ru.tinkoff.academy.blackbooks.enums.SortType;
 import ru.tinkoff.academy.blackbooks.model.BookTransaction;
 import ru.tinkoff.academy.blackbooks.model.BookTransactionDTO;
