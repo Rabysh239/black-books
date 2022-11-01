@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 import ru.tinkoff.academy.blackbooks.model.BookTransaction;
-import ru.tinkoff.academy.blackbooks.model.BookTransactionDTO;
+import ru.tinkoff.academy.blackbooks.dto.BookTransactionDTO;
 import ru.tinkoff.academy.blackbooks.service.BookDepositService;
 import ru.tinkoff.academy.blackbooks.service.BookHunterService;
 

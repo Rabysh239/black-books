@@ -1,4 +1,4 @@
-package ru.tinkoff.academy.blackbooks.model;
+package ru.tinkoff.academy.blackbooks.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

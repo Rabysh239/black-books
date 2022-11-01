@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 import ru.tinkoff.academy.blackbooks.mapper.BookTransactionMapper;
 import ru.tinkoff.academy.blackbooks.enums.SortType;
 import ru.tinkoff.academy.blackbooks.model.BookTransaction;
-import ru.tinkoff.academy.blackbooks.model.BookTransactionDTO;
+import ru.tinkoff.academy.blackbooks.dto.BookTransactionDTO;
 import ru.tinkoff.academy.blackbooks.repository.BookTransactionRepository;
 
 import java.util.Comparator;

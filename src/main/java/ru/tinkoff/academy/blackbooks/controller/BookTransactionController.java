@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import ru.tinkoff.academy.blackbooks.model.BookTransactionDTO;
+import ru.tinkoff.academy.blackbooks.dto.BookTransactionDTO;
 import ru.tinkoff.academy.blackbooks.service.BookTransactionService;
 import ru.tinkoff.academy.blackbooks.enums.SortType;
 
