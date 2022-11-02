@@ -13,7 +13,7 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/transaction")
+@RequestMapping("transaction")
 @Tag(name="Transaction operations")
 public class BookTransactionController {
     private final BookTransactionService service;
