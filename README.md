@@ -29,3 +29,13 @@ curl -X GET localhost:8080/api/discovery
   "BookHunter": "BookHunter is not available"
 }
 ```
+
+
+## 4 шаг
+При помощи Spring Data JPA описаны сущности [BookHunter](src/main/java/ru/tinkoff/academy/blackbooks/model/BookHunter.java),
+[BookDeposit](src/main/java/ru/tinkoff/academy/blackbooks/model/BookDeposit.java),
+[BookTransaction](src/main/java/ru/tinkoff/academy/blackbooks/model/BookTransaction.java).
+
+Добавлена база данных и соответственно 3 таблицы в ней:
+
+![alt text](resources/bd.png)

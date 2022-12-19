@@ -9,27 +9,28 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Timestamp;
 import java.util.UUID;
-
-import static java.util.UUID.randomUUID;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "book_transaction")
-public class BookTransaction {
+@Table(name = "book_deposit")
+public class BookDeposit {
     @Id
     @Column(name = "id")
     private UUID id;
-    @Column(name = "book_deposit_id")
-    private UUID bookDepositId;
-    @Column(name = "book_hunter_id")
-    private UUID bookHunterId;
-    @Column(name = "timestamp")
-    private Timestamp timestamp;
-    @Column(name = "action")
-    private String action;
+    @Column(name = "nick")
+    private String nick;
+    @Column(name = "address")
+    private String address;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "type")
+    private String type;
+    @Column(name = "latitude")
+    private Double latitude;
+    @Column(name = "longitude")
+    private Double longitude;
 }
