@@ -10,9 +10,11 @@ import ru.tinkoff.academy.blackbooks.service.BookHunterService;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Objects;
 import java.util.UUID;
 
 import static java.sql.Timestamp.valueOf;
+import static java.util.Objects.requireNonNullElseGet;
 
 @Component
 @RequiredArgsConstructor
@@ -22,7 +24,7 @@ public class BookTransactionMapper {
     private final BookDepositService bookDepositService;
     private final BookHunterService bookHunterService;
 
-    public BookTransaction mapToEntity(BookTransactionDTO bookTransactionDTO) {
+    public BookTransaction mapToEntity(BookTransactionDTO bookTransactionDTO, UUID id) {
         if (bookTransactionDTO == null) {
             return null;
         }
@@ -33,6 +35,7 @@ public class BookTransactionMapper {
         bookTransaction.setBookHunterId(bookHunterId);
         Timestamp timestamp = valueOf(bookTransactionDTO.getTimestamp());
         bookTransaction.setTimestamp(timestamp);
+        bookTransaction.setId(requireNonNullElseGet(id, UUID::randomUUID));
         return bookTransaction;
     }
 

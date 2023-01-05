@@ -55,7 +55,7 @@ public class BookTransactionService {
     }
 
     public void update(UUID id, BookTransactionDTO bookTransactionDTO) {
-        BookTransaction bookTransaction = mapper.mapToEntity(bookTransactionDTO);
+        BookTransaction bookTransaction = mapper.mapToEntity(bookTransactionDTO, id);
         repository.update(id, bookTransaction);
     }
 
