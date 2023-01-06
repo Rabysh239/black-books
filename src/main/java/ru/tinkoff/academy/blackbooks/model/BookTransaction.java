@@ -32,4 +32,5 @@ public class BookTransaction {
     private Timestamp timestamp;
     @Column(name = "action")
     private String action;
+    private Book book;
 }
