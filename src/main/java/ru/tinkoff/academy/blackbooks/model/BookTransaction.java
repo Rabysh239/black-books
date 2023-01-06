@@ -20,4 +20,5 @@ public class BookTransaction {
     private UUID bookHunterId;
     private Timestamp timestamp;
     private String action;
+    private Book book;
 }

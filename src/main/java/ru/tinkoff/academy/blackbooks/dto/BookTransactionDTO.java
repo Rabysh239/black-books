@@ -10,6 +10,8 @@ import lombok.*;
 public class BookTransactionDTO {
     private String user;
     private String shelf;
+    private String bookName;
+    private String bookAuthor;
     private String timestamp;
     private String action;
 }
